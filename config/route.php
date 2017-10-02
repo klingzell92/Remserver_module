@@ -1,8 +1,16 @@
+
 <?php
 /**
- * Routes.
+ * Configuration file for routes.
  */
-require __DIR__ . "/route/internal.php";
-require __DIR__ . "/route/base.php";
-require __DIR__ . "/route/remserver.php";
-//$app->router->load(__DIR__ . "/route/remserver.php");
+return [
+    // Load these routefiles in order specified and optionally mount them
+    // onto a base route.
+    "routeFiles" => [
+        [
+            // Routes for the REM server
+            "mount" => "api",
+            "file" => __DIR__ . "/route/remserver.php",
+        ],
+    ],
+];
